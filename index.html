@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Made with Thimble</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+      div.calculator {
+        font-size: 0px;
+        height: 500px;
+
+        width: 450px
+      }
+
+      div.screen {
+        background: lightgray;
+        width: 440px;
+        height: 100px;
+        text-align: right;
+        font-size: 50px;
+      }
+
+      div.digits {
+        display: inline-block;
+        width: 330px;
+        background: gray;
+        height: 350px;
+        font-size: 0px;
+      }
+
+      span {
+        display: inline-block;
+        width: 100px;
+        height: 75px;
+        background: white;
+        font-size: 29px;
+        vertical-align: top;
+        margin: 5px;
+        text-align: center;
+        box-sizing: border-box;
+        padding: 15px;
+      }
+
+      div.actions {
+        display: inline-block;
+        width: 110px;
+        height: 350px;
+        background: orange;
+        vertical-align: top;
+        box-sizing: border-box;
+      }
+
+    </style>
+  </head>
+  <body>
+
+    <div class='calculator'>
+      <div class="screen" id="screen"></div>
+      <div class=digits>
+        <span class='digit'>1</span>
+        <span class='digit'>2</span>
+        <span class='digit'>3</span>
+        <span class='digit'>4</span>
+        <span class='digit'>5</span>
+        <span class='digit'>6</span>
+        <span class='digit'>7</span>
+        <span class='digit'>8</span>
+        <span class='digit'>9</span>
+        <span class='clear'>AC</span>
+
+        <span class='digit'>0</span>
+        <span>=</span>
+      </div>
+      <div class=actions>
+        <span class='operator'>%</span>
+        <span class='operator'>X</span>
+        <span class='operator'>-</span>
+        <span class='operator'>+</span>
+      </div>
+
+
+    </div>
+
+    <script>
+
+      var  digits =   document.getElementsByClassName("digit");
+
+      for ( var i in digits ) {
+        digits[i].innerHTML = 9 - i
+        digits[i].onclick = function() {
+          document.getElementById("screen").innerHTML += this.innerHTML
+        }
+      }
+
+      document.getElementsByClassName("clear")[0].onclick= function() {
+        document.getElementById("screen").innerHTML = "";
+      }
+
+    </script>
+
+  </body>
+</html>
